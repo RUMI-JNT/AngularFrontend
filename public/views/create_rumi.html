@@ -1,4 +1,17 @@
 <div ng-controller="RumiCreate as c">
   Create Rumi
   {{ c.greeting }}
+  <form id="form3">
+			<div class="form-group">
+			<label>What do you want to share?</label>
+			<input class="form-control" type="text" placeholder="Anything you want" id="" maxlength="80">
+			<label>Upload Photo</label>
+			<i class="fa fa-picture-o" aria-hidden="true"></i>
+			<label>Description </label>
+			<textarea class="description form-control" maxlength="256"></textarea>
+			<label>Pick Partner</label>
+			<input class="form-control" type="text" placeholder="" id="">
+			</div>
+	</form>
+	 <button id="form3-button" type="submit" form="form3" class="btn">next</button>
 </div>
