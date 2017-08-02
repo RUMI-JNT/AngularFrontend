@@ -1,16 +1,16 @@
 <div ng-controller="RumiSignup as c">
-  Signup
-  {{ c.greeting }}
-  	<form id="form2">
+	<form id="form2" ng-submit="c.signup()">
   	<label>Username</label>
-		<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+		<input type="text" class="form-control" id="username" ng-model="username" name="username" placeholder="Username">
 		<label>Password</label>
-		<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		<input type="password" class="form-control" id="password" ng-model="password" name="password" placeholder="Password">
 		<div class="form-group">
 			<label class= "form-control-label">Enter Email</label>
-			<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+			<input type="email" class="form-control" id="email" ng-model="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
 		</div>
 		<label>Enter Cellphone</label>
-		<input class="form-control" id="cellphone" type="tel" name="phone" placeholder="(555)-555-5555" id="form1-cellphone" maxlength="14">
+		<input class="form-control" id="cellphone" type="tel" ng-model="number" name="number" placeholder="(555)-555-5555" id="form1-cellphone" maxlength="14">
+		<button type="submit"> Signup </button>
 	</form>
+	<a href="/#/login">Already have an account?</a>
 </div>
