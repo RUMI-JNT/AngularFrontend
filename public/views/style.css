@@ -27,7 +27,7 @@ form {
 .form-title {
   color: white;
   background-color: #4ac79d;
-  height: 200px;
+  height: 150px;
   font-size: 100px; }
 
 body-form {
@@ -39,9 +39,35 @@ body-form {
   margin: 0 auto;
   margin: 10px auto; }
 
+.body-sharedobject {
+  display: flex;
+  padding: 10px;
+  text-align: left; }
+  .body-sharedobject .sharedobject-information {
+    padding: 0 0 10px 10px; }
+
 .sharedobject-image {
   width: 300px; }
   .sharedobject-image img {
     width: 100%; }
+
+.timeslots-image {
+  width: 300px; }
+  .timeslots-image img {
+    width: 100%; }
+
+.body-timeslots {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+#form4-button {
+  display: flex;
+  margin: 0 auto; }
+
+#sign-up-link {
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */
