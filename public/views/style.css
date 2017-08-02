@@ -1,16 +1,16 @@
 body {
-  background-image: url("public/background.jpg");
+  background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }
 
 html, body {
-  margin: 0;
-  height: 100%; }
+  margin: 0; }
 
 .layout-body {
   margin: 0 auto;
   min-width: 500px;
+  max-width: 500px;
   text-align: center;
   background-color: rgba(229, 236, 234, 0.9);
   margin: 30px auto;
@@ -38,5 +38,10 @@ body-form {
   width: 80%;
   margin: 0 auto;
   margin: 10px auto; }
+
+.sharedobject-image {
+  width: 300px; }
+  .sharedobject-image img {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
