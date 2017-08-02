@@ -1,0 +1,48 @@
+body {
+	background-image: url("public/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.layout-body {
+	margin:0 auto;
+	min-width: 500px;
+	text-align: center;
+	background-color: rgba(229, 236, 234, 0.9);
+	margin:30px auto;
+	display:flex;
+	width: 100%;
+	.body-form {
+		width:100%;
+	}
+}
+
+form { 
+width: 80%;
+margin: 0 auto;
+padding: 10px 0px;
+}
+
+.form-title {
+	color: white;
+	background-color: #4ac79d;
+	height: 200px;
+	font-size: 100px;
+}
+
+body-form{
+	border-radius: 50px;
+	width: 100%;
+}
+
+#form1-button {
+	width: 80%;
+	margin: 0 auto;
+	margin: 10px auto;
+}
