@@ -1,11 +1,21 @@
-<div ng-controller="RumiProfile as c">
+<div ng-controller="RumiProfile as c" ng-init="c.getRumis()">
   Profile
   {{ c.greeting }}
   <input type="file" file-model="myFile" />
   <button ng-click="c.uploadFile()">upload me</button>
   {{c.userInfo.image}}
-  <img ng-src="{{c.user.image}}" />
-  <button ng-click="c.createRumi()"></button>
+  <img src="views/user-image.jpg" style="width:30px;height:30px;" />
+
+  <div ng-init="c.getRumis()">
+    <div>
+      <div ng-repeat="rumi in c.myRumis">
+        rumi
+        <!-- <a ng-hide="c.showInput" ng-click="c.showBook(book[0])"> {{book[0]}}</a> -->
+      </div>
+    </div>
+  </div>
+
+  <button ng-click="c.createRumi()">
+     <img src="views/add_button.png" style="width:30px;height:30px;" /> 
+  </button>
 </div>
-<!-- image for button -->
-<!-- https://images.google.com/imgres?imgurl=https%3A%2F%2Fwww.shareicon.net%2Fdownload%2F2015%2F12%2F01%2F680587_add_512x512.png&imgrefurl=https%3A%2F%2Fwww.shareicon.net%2Fcrisp-icons-buttons-circular-button-circle-pause-control-controls-symbol-680853&docid=lsxYgcVhGmcQSM&tbnid=dgEg1Vto7bThCM%3A&vet=1&w=512&h=512&hl=en-us&source=sh%2Fx%2Fim -->

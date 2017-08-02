@@ -1,5 +1,5 @@
 angular.module('rumi.profile', [])
-  .controller('RumiProfile', function (RumiService) {
+  .controller('RumiProfile', function (RumiService, $window) {
     this.user = RumiService.getUserInfo();
     this.myRumis = [];
     // inject a working provider for fileUpload
@@ -11,10 +11,11 @@ angular.module('rumi.profile', [])
     //   fileUpload.uploadFileToUrl(file, uploadUrl);
     // };
     this.createRumi = function() {
-      console.log(this.user)
+      $window.location.href = '/#/create';
     }
 
-    this.getRumis = function() {
-      // this.myRumis = RumiService.getUserRumis();
+    this.getRumis = async function() {
+      this.myRumis = await RumiService.getUserRumis();
+      console.log(this.myRumis)
     }
   })

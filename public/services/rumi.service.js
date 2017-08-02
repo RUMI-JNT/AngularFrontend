@@ -32,24 +32,24 @@ angular.module('rumi.service', [])
 
     }
 
-    const getUserRumis = (id) => {
+    const getUserRumis = async (id) => {
       if (id) {
         // get a users rumis from the /v1/useritems/* endpoint 
-        // return await $http({
-        //   method: 'GET',
-        //   url: `http://69f9f148.ngrok.io/v1/useritems/${id}`,
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   }
-        // })
-        //   .then(resp => {
-        //     this.userInfo = resp.data;
-        //     getUserRumis(this.userInfo.id);
-        //     return resp.data
-        //   })
-        //   .catch(err => {
-        //     return err.data
-        //   });
+        return await $http({
+          method: 'GET',
+          url: `http://69f9f148.ngrok.io/v1/useritems/${id}`,
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+          .then(resp => {
+            this.userInfo = resp.data;
+            getUserRumis(this.userInfo.id);
+            return resp.data
+          })
+          .catch(err => {
+            return err.data
+          });
       } else {
         return [];
       }
