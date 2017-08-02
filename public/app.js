@@ -7,6 +7,7 @@ const app = angular.module('rumi', [
   'rumi.profile',
   'rumi.create',
   'ngRoute',
+  // 'angularFileUpload'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',

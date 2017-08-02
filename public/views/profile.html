@@ -1,4 +1,6 @@
 <div ng-controller="RumiProfile as c">
   Profile
   {{ c.greeting }}
+  <input type="file" file-model="myFile" />
+  <button ng-click="c.uploadFile()">upload me</button>
 </div>

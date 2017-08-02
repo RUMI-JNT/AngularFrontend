@@ -1,4 +1,4 @@
 angular.module('rumi.service', [])
-  .factory('RumiService', function () {
+  .factory('RumiService', function ($http, $location) {
 
   })
