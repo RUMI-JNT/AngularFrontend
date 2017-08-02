@@ -1,4 +1,16 @@
 <div ng-controller="RumiSignup as c">
   Signup
   {{ c.greeting }}
+  	<form id="form2">
+  	<label>Username</label>
+		<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+		<label>Password</label>
+		<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		<div class="form-group">
+			<label class= "form-control-label">Enter Email</label>
+			<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+		</div>
+		<label>Enter Cellphone</label>
+		<input class="form-control" id="cellphone" type="tel" name="phone" placeholder="(555)-555-5555" id="form1-cellphone" maxlength="14">
+	</form>
 </div>
