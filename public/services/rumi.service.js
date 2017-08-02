@@ -28,13 +28,32 @@ angular.module('rumi.service', [])
         });
     }
 
-    const logIn = () => {
-
+    const logIn = async (username, password) => {
+      console.log('inside signup service')
+      let userInfo = {
+        username,
+        password,
+      }
+      return await $http({
+        method: 'POST',
+        url: 'http://69f9f148.ngrok.io/v1/signup',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: userInfo,
+      })
+        .then(resp => {
+          this.userInfo = resp.data;
+          getUserRumis(this.userInfo.id);
+          return resp.data
+        })
+        .catch(err => {
+          return err.data
+        });
     }
 
     const getUserRumis = async (id) => {
       if (id) {
-        // get a users rumis from the /v1/useritems/* endpoint 
         return await $http({
           method: 'GET',
           url: `http://69f9f148.ngrok.io/v1/useritems/${id}`,
@@ -58,10 +77,63 @@ angular.module('rumi.service', [])
     const getUserInfo = () => {
       return this.userInfo;
     }
+    const validateEmail = async (email) => {
+      console.log('inside validate email')
+      return await $http({
+        method: 'GET',
+        url: `http://69f9f148.ngrok.io/v1/validateemail/${email}`,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then(resp => {
+          return resp.data
+        })
+        .catch(err => {
+          return err.data
+        });
+    }
+
+    const createRumi = (info) => {
+  // name = req.body.name;
+  // image = req.body.image;
+  // description = req.body.description;
+  // times = req.body.times;
+  // requester = req.body.requester;
+  // acceptor = req.body.acceptor;
+  // sendBy = req.body.sendBy;
+  // sendInfo = req.body.sendInfo;
+      // let rumiInfo = {
+      //   name,
+      //   image,
+      //   description,
+      //   times,
+      //   requester,
+      //   acceptor,
+      //   sendBy,
+      //   sendInfo
+      // }
+      // return await $http({
+      //   method: 'POST',
+      //   url: 'http://69f9f148.ngrok.io/v1/signup',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   data: userInfo,
+      // })
+      //   .then(resp => {
+      //     return resp.data
+      //   })
+      //   .catch(err => {
+      //     return err.data
+      //   });
+    }
 
     return {
       signUp,
+      logIn,
       getUserRumis,
-      getUserInfo
+      getUserInfo,
+      validateEmail
     }
   })

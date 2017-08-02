@@ -1,23 +1,30 @@
 <div ng-controller="RumiCreate as c">
    <head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="views/style.css">
 	</head>
 <body>
 <div class="layout-body">
 	<div class="body-form">
-	<div class="form-title">RuMI</div>
-  <form id="form3">
+	<div class="form-title">RūMI</div>
+		<div class="alert alert-info">
+			Select range on a day on the view.
+			<strong ng-show="c.lastDateClicked">You selected on this day: from {{ c.firstDateClicked | date:'medium' }} to {{ c.lastDateClicked | date:'medium' }}</strong>
+		</div>
+		<ng-include src="'calendarControls.html'"></ng-include>
+		<mwl-calendar events="c.events" view="c.calendarView" view-date="c.viewDate" on-date-range-select="c.rangeSelected(calendarRangeStartDate, calendarRangeEndDate)">
+		</mwl-calendar>
+	<!-- <div ng-hide="c.showInput">
+		<form id="form3" ng-hide="c.showInput">
 			<div class="form-group">
 
 			<label>What do you want to share?</label>
-			<input class="form-control" type="text" placeholder="Anything you want" id="" maxlength="80">
-			<label>Upload Photo</label>
-			<i class="fa fa-picture-o" aria-hidden="true"></i>
-			<label>Description </label>
-			<textarea class="description form-control" maxlength="256"></textarea>
-			<label>Pick Partner</label>
-			<input class="form-control" type="text" placeholder="" id="">
+			<input class="form-control" type="text" placeholder="Item Name" id="" maxlength="80" ng-model="name">
+
+			<label>Description</label>
+			<textarea class="description form-control" maxlength="256" ng-model="description"></textarea>
+			<label>Who are you sharing it with?</label>
+			<input class="form-control" type="text" placeholder="Enter the user's email" id="" ng-model="email">
 			</div>
 	</form>
 	 <button id="form3-button" type="submit" form="form3" class="btn btn-default btn-lg btn-block">next</button>

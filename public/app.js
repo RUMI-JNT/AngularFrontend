@@ -6,7 +6,9 @@ const app = angular.module('rumi', [
   'rumi.login',
   'rumi.profile',
   'rumi.create',
-  'ngRoute'
+  'ngRoute',
+  'mwl.calendar', 
+  'ui.bootstrap'
   // 'angularFileUplo ad'
 ]);
 
