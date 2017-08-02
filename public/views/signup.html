@@ -7,18 +7,19 @@
 <div class="layout-body">
 	<div class="body-form">
 		<div class="form-title">RuMI</div>
-	  	<form id="form2">
-	  	<label>Username</label>
-			<input type="text" class="form-control" id="username" name="username" placeholder="Username">
-			<label>Password</label>
-			<input type="password" class="form-control" id="password" name="password" placeholder="Password">
-			<div class="form-group">
-				<label class= "form-control-label">Enter Email</label>
-				<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-			</div>
-			<label>Enter Cellphone</label>
-			<input class="form-control" id="cellphone" type="tel" name="phone" placeholder="(555)-555-5555" id="form1-cellphone" maxlength="14">
-		</form>
-		<button id="form1-button" type="submit" form="form1" class="btn btn-default btn-lg btn-block">Sign Up</button>
-	</div>
+	<form id="form2" ng-submit="c.signup()">
+  	<label>Username</label>
+		<input type="text" class="form-control" id="username" ng-model="username" name="username" placeholder="Username">
+		<label>Password</label>
+		<input type="password" class="form-control" id="password" ng-model="password" name="password" placeholder="Password">
+		<div class="form-group">
+			<label class= "form-control-label">Enter Email</label>
+			<input type="email" class="form-control" id="email" ng-model="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+		</div>
+		<label>Enter Cellphone</label>
+		<input class="form-control" id="cellphone" type="tel" ng-model="number" name="number" placeholder="(555)-555-5555" id="form1-cellphone" maxlength="14">
+		<button type="submit"> Signup </button>
+	</form>
+	<a href="/#/login">Already have an account?</a>
+  </div>
 </div>

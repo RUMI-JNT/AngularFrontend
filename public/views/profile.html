@@ -1,4 +1,4 @@
-<div ng-controller="RumiProfile as c">
+<div ng-controller="RumiProfile as c" ng-init="c.getRumis()">
   Profile
   {{ c.greeting }}
  <head>
@@ -8,6 +8,22 @@
 <body>
 <div class="layout-body">
 	<div class="body-form">
-	</div>
-	
+  <input type="file" file-model="myFile" />
+  <button ng-click="c.uploadFile()">upload me</button>
+  {{c.userInfo.image}}
+  <img src="views/user-image.jpg" style="width:30px;height:30px;" />
+
+  <div ng-init="c.getRumis()">
+    <div>
+      <div ng-repeat="rumi in c.myRumis">
+        rumi
+        <!-- <a ng-hide="c.showInput" ng-click="c.showBook(book[0])"> {{book[0]}}</a> -->
+      </div>
+    </div>
+  </div>
+
+  <button ng-click="c.createRumi()">
+     <img src="views/add_button.png" style="width:30px;height:30px;" /> 
+  </button>
+  </div>
 </div>
