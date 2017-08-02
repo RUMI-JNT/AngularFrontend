@@ -1,4 +1,12 @@
 <div ng-controller="RumiSignup as c">
+ <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="layout-body">
+	<div class="body-form">
+		<div class="form-title">RuMI</div>
 	<form id="form2" ng-submit="c.signup()">
   	<label>Username</label>
 		<input type="text" class="form-control" id="username" ng-model="username" name="username" placeholder="Username">
@@ -13,4 +21,5 @@
 		<button type="submit"> Signup </button>
 	</form>
 	<a href="/#/login">Already have an account?</a>
+  </div>
 </div>
