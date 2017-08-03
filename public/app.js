@@ -6,8 +6,11 @@ const app = angular.module('rumi', [
   'rumi.login',
   'rumi.profile',
   'rumi.create',
-  'ngRoute'
-  // 'angularFileUplo ad'
+  'ngRoute',
+  'mwl.calendar', 
+  'ui.bootstrap',
+  'angularFileUpload',
+  'ui.calendar',
 ]);
 
 app.config(['$routeProvider', '$locationProvider',

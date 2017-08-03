@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/CharliFrank/AngularFrontend#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "angular": "^1.6.5",
+    "angular-bootstrap-calendar": "^0.29.3",
+    "angular-ui-bootstrap": "^2.5.0",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "moment": "^2.18.1"
   }
 }
