@@ -15,8 +15,7 @@ html, body {
   background-color: rgba(229, 236, 234, 0.9);
   margin: 30px auto;
   display: flex;
-  width: 95%;
-  border-radius: 50px; }
+  width: 95%; }
   .layout-body .body-form {
     width: 100%; }
 
@@ -29,12 +28,10 @@ form {
   color: white;
   background-color: #4ac79d;
   height: 150px;
-  font-size: 100px;
-  border-radius: 50px 50px 0px 0px; }
+  font-size: 100px; }
 
 .body-form {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 50px; }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
 #form1-button {
   width: 80%;
