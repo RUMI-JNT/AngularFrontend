@@ -20,9 +20,9 @@
 			<input class="form-control" type="text" placeholder="Enter the user's email" id="" ng-model="email">
 			</div>
 		</form>
-		<button id="form3-button" type="button" form="form3" class="btn" ng-click="c.next()">next</button>
+		<button id="form3-button" type="button" form="form3" class="btn" ng-click="c.firstNext()">next</button>
 	</div> -->
-	<!-- <div ng-show="c.showInput" > -->
+	<!-- <div ng-show="c.showInput" ng-if="c.secondScreen"> -->
 		<div class="container">
 			<h3>Schedule Your Time</h3>
 			<form class="form-horizontal clearfix">
@@ -60,9 +60,17 @@
 				</div>
 			</div>
 		</div>
+		<button id="form3-button" type="button" form="form3" class="btn" ng-click="c.secondNext()">next</button>
 	<!-- </div> -->
 		
 	<!-- <div ng-if="c.fullRumi">
+		image of sared item 	name
+		description
+
+		requester image 		name 
+		acceptor image 		name 
+
+		submit button
 		{{c.otherUserName}}
 		
 		<img src="{{c.otherUserImage}}" style="width:30px;height:30px;" />

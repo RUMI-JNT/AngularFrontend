@@ -6,7 +6,7 @@ angular.module('rumi.create', [])
     this.fullFumi;
     
     
-    this.next = async function() {
+    this.firstNext = async function() {
       let emailValidation = await RumiService.validateEmail($scope.email);
       this.otherUserName = emailValidation.username;
       this.otherUserImage = emailValidation.image;
@@ -20,13 +20,18 @@ angular.module('rumi.create', [])
       }
 
       if (typeof emailValidation.id === 'number') {
-        return this.showInput = !this.showInput;
         console.log(this.showInput)
+        this.secondScreen = true;
+        return this.showInput = !this.showInput;
       } else {
         console.log('fes')
         // alert enter a new email
         return $scope.email.text = "";
       }
+    }
+
+    this.secondNext = function() {
+      
     }
 
     this.create = function() {
