@@ -1,21 +1,19 @@
 <div ng-controller="RumiLogin as c">
  <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="views/style.css">
 </head>
 <body>
 	<div class="layout-body">
 		<div class="body-form">
-			<div class="form-title">RuMI</div>
+			<div class="form-title">RūMI</div>
   			<form class="form1" id="form1" method="get" action="">
 			<label >Username</label>
-			<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+			<input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="username">
 			<label>Password</label>
-			<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+			<input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="password">
 		</form>
-		<button id="form1-button" type="submit" form="form1" class="btn btn-default btn-lg btn-block">Login</button>
-<button class="btn btn-default btn-lg btn-block" id="sign-up-link" class="sign-up-link">Sign Up</button>		
-	</div>
+		<button id="form1-button" type="button" form="form1" class="btn btn-default btn-lg btn-block" ng-click="c.login(username, password)">Login</button>
+	<a id="sign-up-link" class="sign-up-link" href="/#/login">Don't have an account?</a>
+	
 </div>
-</div>
-</body>

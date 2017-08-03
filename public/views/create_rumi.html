@@ -1,25 +1,124 @@
 <div ng-controller="RumiCreate as c">
    <head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="views/style.css">
 	</head>
 <body>
 <div class="layout-body">
 	<div class="body-form">
-	<div class="form-title">RuMI</div>
-  <form id="form3">
-			<div class="form-group">
+	<div class="form-title">RūMI</div>
+	 <div ng-if="c.create1">
+		<form id="form3" >
+			<div class="form-group" >
 
 			<label>What do you want to share?</label>
-			<input class="form-control" type="text" placeholder="Anything you want" id="" maxlength="80">
-			<label>Upload Photo</label>
-			<i class="fa fa-picture-o" aria-hidden="true"></i>
-			<label>Description </label>
-			<textarea class="description form-control" maxlength="256"></textarea>
-			<label>Pick Partner</label>
-			<input class="form-control" type="text" placeholder="" id="">
+			<input class="form-control" type="text" placeholder="Item Name" id="" maxlength="80" ng-model="name">
+
+			<label>Description</label>
+			<textarea class="description form-control" maxlength="256" ng-model="description"></textarea>
+			<label>Who are you sharing it with?</label>
+			<input class="form-control" type="text" placeholder="Enter the user's email" id="" ng-model="email" name="email">
 			</div>
-	</form>
-	 <button id="form3-button" type="submit" form="form3" class="btn btn-default btn-lg btn-block">next</button>
-</div>
+		</form>
+		<button id="form3-button" type="button" form="form3" class="btn" ng-click="c.firstNext(name, email, description)">next</button>
+	</div> 
+	 <div ng-if="c.create2"> 
+			<h3>Schedule Your Time</h3>
+		<div >
+			<form class="form-horizontal clearfix">
+				<label for="dateFrom" class="col-sm-2 control-label">FROM</label>
+				<div class="col-sm-10">
+					<input type="date" class="form-control" id="dateFrom" ng-model="ev.from">
+							<div>
+								<select class="col-sm-6" id="timeInput1" ng-model="timeInput1" required>
+									<option value="" >Choose A Time</option>
+									<option value="1" >1</option>
+									<option value="2" >2</option>
+									<option value="3" >3</option>
+									<option value="4" >4</option>
+									<option value="5" >5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+								<select class="col-sm-6" id="amPm1" ng-model="amPm1" required>
+									<option value="">Morning or Evening</option>
+									<option value="AM" >AM</option>
+									<option value="PM" >PM</option>
+								</select>
+							</div>
+				</div>
+				<label for="dateTo" class="col-sm-2 control-label">TO</label>
+				<div class="col-sm-10">
+					<input type="date" class="form-control" id="dateTo" ng-model="ev.to">
+					 <div> 
+						<select class="col-sm-6" id="timeInput2" ng-model="timeInput2" required>
+							<option value="" >Choose A Time</option>
+							<option value="1" >1</option>
+							<option value="2" >2</option>
+							<option value="3" >3</option>
+							<option value="4" >4</option>
+							<option value="5" >5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						<select class="col-sm-6" id="amPm2" ng-model="amPm2" required>
+							<option value="">Morning or Evening</option>
+							<option value="AM" >AM</option>
+							<option value="PM" >PM</option>
+						</select>
+					 </div> 
+				</div>
+
+				 <label for="dateTitle" class="col-sm-2 control-label">TITLE</label> 
+				 <div class="col-sm-10">
+					<input type="text" class="form-control" id="dateTitle" ng-model="ev.title" placeholder="your title">
+				</div> 
+				<button type="submit" class="btn btn-primary pull-right" ng-click="c.addEvent()">Create Event</button>
+				<button type="submit" class="btn btn-primary pull-right" ng-click="c.remove()">Remove Event</button>
+			</form>
+			<div class="well calWell">
+				<div class="row-fluid">
+					<div class="span8">
+						<div class="alert alert-success" ng-show="alertMessage != undefined && alertMessage != ''">{{c.alertMessage}}</div>
+						<div class="alert alert-info">title: {{ev.title}}, from: {{ev.from}}, to: {{ev.to}}</div>
+						<div class="btn-toolbar">
+							<p class="pull-right lead">Calendar One View Options</p>
+							<div class="btn-group">
+								<button class="btn btn-success" ng-class="{active: currentView === 'agendaDay'}" ng-click="c.changeView('agendaDay', 'myCalendar1')">AgendaDay</button>
+								<button class="btn btn-success" ng-class="{active: currentView === 'agendaWeek'}" ng-click="c.changeView('agendaWeek', 'myCalendar1')">AgendaWeek</button>
+								<button class="btn btn-success" ng-class="{active: currentView === 'month'}" ng-click="c.changeView('month', 'myCalendar1')">Month</button>
+							</div>
+						</div>
+						<div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button id="form3-button" type="button" form="form3" class="btn" ng-click="c.secondNext()">next</button>
+	 </div> 
+		
+	  <div ng-if="c.create3"> 
+		image of sared item  
+		SHARED ITEM: {{this.currentRumi.name}}
+		DESCRIPTION: {{this.currentRumi.description}}
+		 
+		REQUESTER: <img src="views/user-image.jpg" style="width:30px;height:30px;" />  {{c.user.username}}
+		ACCEPTOR: <img src="views/user-image.jpg" style="width:30px;height:30px;" />  {{c.otherUserName}}
+		<!-- REQUESTER: <img src="{{c.user.image}}" style="width:30px;height:30px;" /> {{c.user.username}} 
+		ACCEPTOR: <img src="{{c.otherUserImage}}" style="width:30px;height:30px;" /> {{c.otherUserName}}-->
+		 
+		<button ng-click="c.create()">Create Rūmi</button>
+	</div>  
 </div>
