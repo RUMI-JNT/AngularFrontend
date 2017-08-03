@@ -81,8 +81,10 @@ form {
 .form-profile_image {
   width: 200px;
   height: 200px;
-  float: left;
-  padding: 20px; }
+  padding: 20px;
+  display: flex;
+  margin: 0 auto;
+  display: flax; }
 
 .signup-button {
   margin-top: 10px; }
@@ -102,5 +104,7 @@ form {
   display: flex;
   align-items: center;
   padding: 10px; }
+  .rumi-info .rumi-description {
+    padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */
