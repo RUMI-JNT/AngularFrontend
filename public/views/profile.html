@@ -6,8 +6,12 @@
 <body>
 <div class="layout-body">
 	<div class="body-form">
+
+  <input type="file" file-model="myFile" />
+  <button  ng-click="c.uploadFile()">upload me</button>
+
   <input type="file" file-model="myFile" ng-model="file" name="file"/>
-  <button ng-click="c.uploadFile()">upload me</button>
+  <button class="btn btn-default" ng-click="c.uploadFile()">upload me</button>
   {{c.userInfo.image}}
   <img class="form-profile_image" src="views/user-image.jpg" />
    <div ng-init="c.getRumis()">
@@ -21,7 +25,7 @@
     </div>
   </div> 
 
-  <button ng-click="c.createRumi()">
+  <button class="btn btn-default" ng-click="c.createRumi()">
      <img src="views/add_button.png" style="width:30px;height:30px;" /> 
   </button>
   </div>
