@@ -1,5 +1,5 @@
 angular.module('rumi.service', [])
-  .factory('RumiService', function ($http, $location) {
+  .factory('RumiService', function ($http, $location, $window) {
     this.userInfo = null;
 
     const signUp = async (username, password, email, number) => {
@@ -20,6 +20,7 @@ angular.module('rumi.service', [])
         })
         .then(resp => {
           this.userInfo = resp.data;
+          $window.localStorage.setItem('id', this.userInfo.id)
           getUserRumis(this.userInfo.id);
           return resp.data
         })
@@ -29,14 +30,14 @@ angular.module('rumi.service', [])
     }
 
     const logIn = async (username, password) => {
-      console.log('inside signup service')
+      console.log('inside login service')
       let userInfo = {
         username,
         password,
       }
       return await $http({
         method: 'POST',
-        url: 'http://69f9f148.ngrok.io/v1/signup',
+        url: 'http://69f9f148.ngrok.io/v1/login',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -44,6 +45,8 @@ angular.module('rumi.service', [])
       })
         .then(resp => {
           this.userInfo = resp.data;
+          console.log(this.userInfo)
+          $window.localStorage.setItem('id', this.userInfo.id)
           getUserRumis(this.userInfo.id);
           return resp.data
         })
@@ -53,6 +56,8 @@ angular.module('rumi.service', [])
     }
 
     const getUserRumis = async (id) => {
+      console.log(typeof id)
+      console.log(id)
       if (id) {
         return await $http({
           method: 'GET',
@@ -62,8 +67,6 @@ angular.module('rumi.service', [])
           }
         })
           .then(resp => {
-            this.userInfo = resp.data;
-            getUserRumis(this.userInfo.id);
             return resp.data
           })
           .catch(err => {
@@ -94,39 +97,22 @@ angular.module('rumi.service', [])
         });
     }
 
-    const createRumi = (info) => {
-  // name = req.body.name;
-  // image = req.body.image;
-  // description = req.body.description;
-  // times = req.body.times;
-  // requester = req.body.requester;
-  // acceptor = req.body.acceptor;
-  // sendBy = req.body.sendBy;
-  // sendInfo = req.body.sendInfo;
-      // let rumiInfo = {
-      //   name,
-      //   image,
-      //   description,
-      //   times,
-      //   requester,
-      //   acceptor,
-      //   sendBy,
-      //   sendInfo
-      // }
-      // return await $http({
-      //   method: 'POST',
-      //   url: 'http://69f9f148.ngrok.io/v1/signup',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   data: userInfo,
-      // })
-      //   .then(resp => {
-      //     return resp.data
-      //   })
-      //   .catch(err => {
-      //     return err.data
-      //   });
+    const createRumi = async (info) => {
+      console.log("info inside create rumi", info)
+      return await $http({
+        method: 'POST',
+        url: 'http://69f9f148.ngrok.io/v1/createitem',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: info,
+      })
+        .then(resp => {
+          return resp.data
+        })
+        .catch(err => {
+          return err.data
+        });
     }
 
     return {
@@ -134,6 +120,7 @@ angular.module('rumi.service', [])
       logIn,
       getUserRumis,
       getUserInfo,
-      validateEmail
+      validateEmail,
+      createRumi
     }
   })

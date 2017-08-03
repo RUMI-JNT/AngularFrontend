@@ -17,7 +17,7 @@ angular.module('rumi.profile', [])
     }
 
     this.getRumis = async function() {
-      this.myRumis = await RumiService.getUserRumis();
+      this.myRumis = await RumiService.getUserRumis($window.localStorage.getItem('id'));
       console.log(this.myRumis)
     }
   })

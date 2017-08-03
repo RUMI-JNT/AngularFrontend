@@ -4,47 +4,49 @@ angular.module('rumi.create', [])
     this.otherUserName = "";
     this.showInput =  false;
     this.fullFumi;
+    this.create1 = true;
+    this.create2 = false;
+    this.create3 = false;
     
     
-    this.firstNext = async function() {
-      let emailValidation = await RumiService.validateEmail($scope.email);
+    this.firstNext = async function (name, email, description) {
+      this.user = RumiService.getUserInfo();
+      let emailValidation = await RumiService.validateEmail(email);
       this.otherUserName = emailValidation.username;
       this.otherUserImage = emailValidation.image;
-      this.currentRumi['name'] = $scope.name;
+      this.currentRumi['name'] = name;
       this.currentRumi['image'] = "image goes here";
-      this.currentRumi['description'] = $scope.description;
+      this.currentRumi['description'] = description;
+      this.currentRumi['requester'] = $window.localStorage.getItem('id');
       this.currentRumi['acceptor'] = emailValidation.id;
       this.currentRumi['sendInfo'] = {
         number: emailValidation.number,
         email: emailValidation.email
       }
-
       if (typeof emailValidation.id === 'number') {
-        console.log(this.showInput)
-        this.secondScreen = true;
+        this.create1 = false;
+        this.create2 = true;
         return this.showInput = !this.showInput;
       } else {
-        console.log('fes')
-        // alert enter a new email
+        $window.alert('Please check your email and try again');
         return $scope.email.text = "";
       }
     }
 
     this.secondNext = function() {
+      console.log('second next')
+      this.currentRumi['times'] = $scope.events[$scope.events.length - 1];
       
+      this.create2 = false;
+      this.create3 = true;
     }
 
     this.create = function() {
-      // let rumiInfo = {
-      //   times,
-      //   requester,
-      //   sendBy,
-      //   sendInfo
-      // }
-      console.log('create')
+      RumiService.createRumi(this.currentRumi);
+      $window.location.href = '/#/profile';
     }
 
-    let date = new Date();
+  let date = new Date();
   let d = date.getDate();
   let m = date.getMonth();
   let y = date.getFullYear();
@@ -66,47 +68,25 @@ angular.module('rumi.create', [])
       allDay: false,
       className: ['customFeed']
     }];
-    callback(events);
+    // callback(events);
   };
 
-  $scope.calEventsExt = {
-    color: '#f00',
-    textColor: 'yellow',
-    events: [{
-      type: 'party',
-      title: 'Lunch',
-      start: new Date(y, m, d, 12, 0),
-      end: new Date(y, m, d, 14, 0),
-      allDay: false
-    }, {
-      type: 'party',
-      title: 'Lunch 2',
-      start: new Date(y, m, d, 12, 0),
-      end: new Date(y, m, d, 14, 0),
-      allDay: false
-    }, {
-      type: 'party',
-      title: 'Click for Google',
-      start: new Date(y, m, 28),
-      end: new Date(y, m, 29),
-      url: 'http://google.com/'
-    }]
-  };
 
   $scope.ev = {};
 
   /* alert on dayClick */
   $scope.alertOnDayClick = function (date) {
-    console.log("date", date)
-    console.log("date", $window.moment(date))
-    console.log("date", typeof date)
-    $scope.alertMessage = (date.toString() + ' was clicked ');
+    // console.log("date", date.toISOString().split('T')[0])
+    // console.log("date", $window.moment(date))
+    // console.log("date", typeof date.toISOString().split('T')[0])
+    this.alertMessage = (date.toString() + ' was clicked ');
     $scope.ev = {
-      from: $window.moment(date).format('YYYY-MM-DD'),
-      to: $window.moment(date).format('YYYY-MM-DD'),
+      from: date,
+      to: date,
       title: '',
       allDay: true
     };
+
   };
 
   /* alert on eventClick */
@@ -136,37 +116,42 @@ angular.module('rumi.create', [])
   };
   /* add custom event*/
   this.addEvent = function () {
+    console.log($scope.timeInput1)
+    console.log($scope.timeInput2)
     console.log({
       title: $scope.ev.title,
       start: $window.moment($scope.ev.from),
       end: $window.moment($scope.ev.to),
-      allDay: true,
+      startTime: `${$scope.timeInput1} ${$scope.amPm1}`,
+      endTime: `${$scope.timeInput2} ${$scope.amPm2}`,
+      // allDay: true,
       className: ['openSesame']
     })
     $scope.events.push({
       title: $scope.ev.title,
       start: $window.moment($scope.ev.from),
       end: $window.moment($scope.ev.to),
-      allDay: true,
+      startTime: `${$scope.timeInput1} ${$scope.amPm1}`,
+      endTime: `${$scope.timeInput2} ${$scope.amPm2}`,
+      // allDay: true,
       className: ['openSesame']
     });
     console.log($scope.events)
   };
   /* remove event */
-  $scope.remove = function (index) {
+  this.remove = function (index) {
       $scope.events.splice(index, 1);
   };
   /* Change View */
-  $scope.changeView = function (view, calendar) {
-    console.log("cds")
+  this.changeView = function (view, calendar) {
     $scope.currentView = view;
-    uiCalendarConfig.calendars[calendar].fullCalendar('changeView', view);
+    $scope.myCalendar1.fullCalendar('changeView', view);
   };
   /* Change View */
   $scope.renderCalender = function (calendar) {
     $timeout(function () {
-      if (uiCalendarConfig.calendars[calendar]) {
-        uiCalendarConfig.calendars[calendar].fullCalendar('render');
+      if ($scope.myCalendar1) {
+        $scope.myCalendar1.fullCalendar('render');
       }
     });
   };
@@ -208,7 +193,7 @@ angular.module('rumi.create', [])
 
   /* event sources array*/
   $scope.eventSources = [$scope.events, $scope.eventsF];
-  $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+  $scope.eventSources2 = [$scope.eventsF, $scope.events];
 
 
   })

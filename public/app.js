@@ -10,7 +10,7 @@ const app = angular.module('rumi', [
   'mwl.calendar', 
   'ui.bootstrap',
   'angularFileUpload',
-  'ui.calendar'
+  'ui.calendar',
 ]);
 
 app.config(['$routeProvider', '$locationProvider',
