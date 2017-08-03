@@ -10,7 +10,12 @@ body {
 html, body {
     margin: 0;
 }
-
+.rumi-info{
+	img {
+		width:50px;
+		height: 50px;
+	}
+}
 .layout-body {
 	margin:0 auto;
 	max-width: 500px;
@@ -21,6 +26,7 @@ html, body {
 	width: 95%;
 	.body-form {
 		width:100%;
+		padding: 15px;
 	}
 }
 
@@ -109,6 +115,17 @@ padding: 10px 0px;
 	width: 80%;
 	margin: 0 auto;
 	margin-bottom: 10px;
+}
+
+.add_rumi{
+	float: right;
+}
+.rumi-info {
+	display: flex;
+    align-items: center;
+    .rumi-description{
+    padding-left: 10px;
+    }	
 }
 
 

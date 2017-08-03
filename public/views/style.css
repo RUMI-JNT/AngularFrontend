@@ -9,6 +9,10 @@ body {
 html, body {
   margin: 0; }
 
+.rumi-info img {
+  width: 50px;
+  height: 50px; }
+
 .layout-body {
   margin: 0 auto;
   max-width: 500px;
@@ -18,7 +22,8 @@ html, body {
   display: flex;
   width: 95%; }
   .layout-body .body-form {
-    width: 100%; }
+    width: 100%;
+    padding: 15px; }
 
 form {
   width: 80%;
@@ -90,27 +95,13 @@ form {
   margin: 0 auto;
   margin-bottom: 10px; }
 
-/*# sourceMappingURL=style.css.map */
+.add_rumi {
+  float: right; }
 
-/*** Calendar ***/
- .calXBtn {
-    float: right;
-    margin-top: -5px;
-    margin-right: -5px;
-}
-.calWell {
-    float: left;
-    margin: 40px;
-    background: white;
-}
-.fc-event.openSesame {
-    background-color: teal;
-    color: black;
-}
-.fc-event.customFeed {
-    background-color: rgb(132, 222, 175);
-    color: black;
-}
-.calTools {
-    margin-bottom: 10px;
-}
+.rumi-info {
+  display: flex;
+  align-items: center; }
+  .rumi-info .rumi-description {
+    padding-left: 10px; }
+
+/*# sourceMappingURL=style.css.map */
