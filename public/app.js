@@ -8,8 +8,9 @@ const app = angular.module('rumi', [
   'rumi.create',
   'ngRoute',
   'mwl.calendar', 
-  'ui.bootstrap'
-  // 'angularFileUplo ad'
+  'ui.bootstrap',
+  'angularFileUpload',
+  'ui.calendar'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',

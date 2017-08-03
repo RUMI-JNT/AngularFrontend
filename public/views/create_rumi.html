@@ -7,13 +7,61 @@
 <div class="layout-body">
 	<div class="body-form">
 	<div class="form-title">RūMI</div>
-		<div class="alert alert-info">
-			Select range on a day on the view.
-			<strong ng-show="c.lastDateClicked">You selected on this day: from {{ c.firstDateClicked | date:'medium' }} to {{ c.lastDateClicked | date:'medium' }}</strong>
+	
+<div class="container">
+		<form class="form-horizontal clearfix">
+			<label for="dateFrom" class="col-sm-2 control-label">FROM</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" id="dateFrom" ng-model="ev.from">
+			</div>
+			<label for="dateTo" class="col-sm-2 control-label">TO</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" id="dateTo" ng-model="ev.to">
+			</div>
+			<label for="dateTitle" class="col-sm-2 control-label">TITLE</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="dateTitle" ng-model="ev.title" placeholder="your title">
+			</div>
+			<button type="submit" class="btn btn-primary pull-right" ng-click="c.addEvent()">Create Event</button>
+		</form>
+		<div class="well calWell">
+			<div class="row-fluid">
+				<div class="span8">
+					<div class="alert alert-success" ng-show="alertMessage != undefined && alertMessage != ''">{{c.alertMessage}}</div>
+					<div class="alert alert-info">title: {{ev.title}}, from: {{ev.from}}, to: {{ev.to}}</div>
+					<div class="btn-toolbar">
+						<p class="pull-right lead">Calendar One View Options</p>
+						<div class="btn-group">
+							<button class="btn btn-success" ng-class="{active: currentView === 'agendaDay'}" ng-click="c.changeView('agendaDay', 'myCalendar1')">AgendaDay</button>
+							<button class="btn btn-success" ng-class="{active: currentView === 'agendaWeek'}" ng-click="c.changeView('agendaWeek', 'myCalendar1')">AgendaWeek</button>
+							<button class="btn btn-success" ng-class="{active: currentView === 'month'}" ng-click="c.changeView('month', 'myCalendar1')">Month</button>
+						</div>
+					</div>
+					<div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar">
+						
+					</div>
+				</div>
+			</div>
 		</div>
-		<ng-include src="'calendarControls.html'"></ng-include>
-		<mwl-calendar events="c.events" view="c.calendarView" view-date="c.viewDate" on-date-range-select="c.rangeSelected(calendarRangeStartDate, calendarRangeEndDate)">
-		</mwl-calendar>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	<!-- <div ng-hide="c.showInput">
 		<form id="form3" ng-hide="c.showInput">
 			<div class="form-group">

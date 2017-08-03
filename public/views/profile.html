@@ -8,7 +8,7 @@
 <body>
 <div class="layout-body">
 	<div class="body-form">
-  <input type="file" file-model="myFile" />
+  <input type="file" file-model="myFile" ng-model="file" name="file"/>
   <button ng-click="c.uploadFile()">upload me</button>
   {{c.userInfo.image}}
   <img class="form-profile_image" src="views/user-image.jpg" />
