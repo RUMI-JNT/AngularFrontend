@@ -100,8 +100,7 @@ form {
 
 .rumi-info {
   display: flex;
-  align-items: center; }
-  .rumi-info .rumi-description {
-    padding-left: 10px; }
+  align-items: center;
+  padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */
