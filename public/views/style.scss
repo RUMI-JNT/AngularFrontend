@@ -3,6 +3,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	box-sizing: border-box;
 }
 
 html, body {
@@ -83,4 +84,10 @@ body-form{
 }
 #sign-up-link {
 	float:right;
+}
+.form-profile_image {
+    width: 200px;
+    height: 200px;
+    float: left;
+    padding: 10px;
 }

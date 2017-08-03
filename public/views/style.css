@@ -2,7 +2,8 @@ body {
   background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  box-sizing: border-box; }
 
 html, body {
   margin: 0; }
@@ -69,5 +70,11 @@ body-form {
 
 #sign-up-link {
   float: right; }
+
+.form-profile_image {
+  width: 200px;
+  height: 200px;
+  float: left;
+  padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */
