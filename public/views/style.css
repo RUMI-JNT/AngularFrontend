@@ -10,13 +10,13 @@ html, body {
 
 .layout-body {
   margin: 0 auto;
-  min-width: 500px;
   max-width: 500px;
   text-align: center;
   background-color: rgba(229, 236, 234, 0.9);
   margin: 30px auto;
   display: flex;
-  width: 100%; }
+  width: 95%;
+  border-radius: 50px; }
   .layout-body .body-form {
     width: 100%; }
 
@@ -29,13 +29,12 @@ form {
   color: white;
   background-color: #4ac79d;
   height: 150px;
-  font-size: 100px; }
+  font-size: 100px;
+  border-radius: 50px 50px 0px 0px; }
 
-@media only screen and (max-width: 500px) {
-  .body-form {
-    box-shadow: 0; } }
 .body-form {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 50px; }
 
 #form1-button {
   width: 80%;
