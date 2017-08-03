@@ -1,14 +1,11 @@
 <div ng-controller="RumiProfile as c" ng-init="c.getRumis()">
  <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="views/style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="layout-body">
 	<div class="body-form">
-
-  <input type="file" file-model="myFile" />
-  <button  ng-click="c.uploadFile()">upload me</button>
 
   <input type="file" file-model="myFile" ng-model="file" name="file"/>
   <button class="btn btn-default" ng-click="c.uploadFile()">upload me</button>
@@ -17,16 +14,16 @@
    <div ng-init="c.getRumis()">
     <div>
       <div ng-repeat="rumi in c.myRumis">
-      <div>
+      <div class="rumi-info">
         <img src="{{rumi.image}}" />
-        {{rumi.description}}
+        <div class="rumi-description"><p>{{rumi.description}}</p></div>
       </div>
       </div>
     </div>
   </div> 
 
-  <button class="btn btn-default" ng-click="c.createRumi()">
-     <img src="views/add_button.png" style="width:30px;height:30px;" /> 
+  <button class="add_rumi btn btn-default" ng-click="c.createRumi()">
+     <img src="add_button.png" style="width:30px;height:30px;" /> 
   </button>
   </div>
 </div>
