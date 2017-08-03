@@ -11,8 +11,7 @@
   <input type="file" file-model="myFile" />
   <button ng-click="c.uploadFile()">upload me</button>
   {{c.userInfo.image}}
-  <img src="views/user-image.jpg" style="width:30px;height:30px;" />
-
+  <img class="form-profile_image" src="views/user-image.jpg" />
   <div ng-init="c.getRumis()">
     <div>
       <div ng-repeat="rumi in c.myRumis">
