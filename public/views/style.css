@@ -31,9 +31,11 @@ form {
   height: 150px;
   font-size: 100px; }
 
-body-form {
-  border-radius: 50px;
-  width: 100%; }
+@media only screen and (max-width: 500px) {
+  .body-form {
+    box-shadow: 0; } }
+.body-form {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
 #form1-button {
   width: 80%;
@@ -66,7 +68,8 @@ body-form {
 
 #form4-button {
   display: flex;
-  margin: 0 auto; }
+  margin: 0 auto;
+  justify-content: center; }
 
 #sign-up-link {
   float: right;
@@ -78,5 +81,16 @@ body-form {
   height: 200px;
   float: left;
   padding: 10px; }
+
+.signup-button {
+  margin-top: 10px; }
+
+.btn {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+
+#form3-button {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px; }
 
 /*# sourceMappingURL=style.css.map */
